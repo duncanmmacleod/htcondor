@@ -68,7 +68,7 @@ if (WITH_OPENSSL)
 
 	else()
 
-		if ( DARWIN )
+		if ( DARWIN AND NOT "$ENV{CONDA_BUILD}" STREQUAL "1")
 			exec_program (sw_vers ARGS -productVersion OUTPUT_VARIABLE TEST_VER)
 			if (${TEST_VER} MATCHES "10.1[1-2]" )
 				if ( NOT EXISTS ${CMAKE_CURRENT_BINARY_DIR}/openssl-darwin )
