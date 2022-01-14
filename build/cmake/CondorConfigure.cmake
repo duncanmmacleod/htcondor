@@ -154,7 +154,13 @@ if(NOT WINDOWS)
 
 		set(PYTHON3_EXECUTABLE        ${Python3_EXECUTABLE})
 
-		set(PYTHON3_LIBRARIES "${PYTHON3_LIB}")
+		# in conda builds we don't want to actually link against libpython
+		if (APPLE)
+			set(PYTHON3_LIBRARIES "-Wl,-undefined,dynamic_lookup")
+		else()
+			set(PYTHON3_LIBRARIES "")
+		endif()
+		set(PYTHON3LIBS_FOUND TRUE)
 
 		# where to install the Python library
 		set(C_PYTHON3ARCHLIB ${Python3_SITEARCH})
