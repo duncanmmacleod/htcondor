@@ -339,7 +339,7 @@ else()
       install ( TARGETS htcondor DESTINATION ${C_PYTHONARCHLIB}/htcondor )
       install ( TARGETS classad_module DESTINATION ${C_PYTHONARCHLIB}/classad )
 
-      if ( APPLE )
+      if ( APPLE AND NOT "$ENV{CONDA_BUILD}" STREQUAL "1" )
           set_target_properties( pyclassad PROPERTIES INSTALL_NAME_DIR ${CMAKE_CURRENT_BINARY_DIR} )
 
           install( CODE "execute_process(COMMAND ${CMAKE_SOURCE_DIR}/src/condor_scripts/macosx_rewrite_libs \$ENV{DESTDIR}/${CMAKE_INSTALL_PREFIX}/${C_LIB}/lib${PYCLASSAD_LIB_NAME}.dylib)" )
@@ -470,7 +470,7 @@ else()
       install ( TARGETS py3classad3_impl DESTINATION ${C_PYTHON3ARCHLIB}/classad3 )
 
 
-      if ( APPLE )
+      if ( APPLE AND NOT "$ENV{CONDA_BUILD}" STREQUAL "1" )
           set_target_properties( py3classad PROPERTIES INSTALL_NAME_DIR ${CMAKE_CURRENT_BINARY_DIR} )
 
           install( CODE "execute_process(COMMAND ${CMAKE_SOURCE_DIR}/src/condor_scripts/macosx_rewrite_libs \$ENV{DESTDIR}/${CMAKE_INSTALL_PREFIX}/${C_LIB}/lib${PY3CLASSAD_LIB_NAME}.dylib)" )
