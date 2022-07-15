@@ -47,7 +47,4 @@ schedd_stats.cpp
 transfer_queue.cpp
 )
 
-condor_daemon( EXE condor_schedd SOURCES "${scheddElements}"
-  LIBRARIES "${CONDOR_LIBS}" INSTALL "${C_SBIN}")
-
 set( QMGMT_UTIL_SRCS "${qmgmtElements};${CMAKE_CURRENT_SOURCE_DIR}/qmgmt_common.cpp" PARENT_SCOPE )
