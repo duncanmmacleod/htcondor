@@ -1,4 +1,4 @@
-#!@Python3_EXECUTABLE@
+#!/opt/anaconda1anaconda2anaconda3/bin/python
 
 # Copyright 2020 HTCondor Team, Computer Sciences Department,
 # University of Wisconsin-Madison, WI.
