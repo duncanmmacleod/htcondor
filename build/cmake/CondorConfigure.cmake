@@ -150,7 +150,8 @@ if(NOT WINDOWS)
 	endif(WANT_PYTHON2_BINDINGS AND NOT WANT_PYTHON_WHEELS)
 
 	if (WANT_PYTHON3_BINDINGS AND NOT WANT_PYTHON_WHEELS)
-		find_package (Python3 COMPONENTS Interpreter Development)
+		find_package (Python3 COMPONENTS Interpreter)
+		find_package (Python3 COMPONENTS Development)
 		if (APPLE)
 			# mac doesn't ship a python  interpeter by default
 			# but we want to force the system one, not the one we found
